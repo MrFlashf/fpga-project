@@ -8,4 +8,5 @@
 // 5. wyswietlic wynik
 int main(int argc, char *argv[]) {
   print_calc();
+  getNumbersFromFile("hello.txt");
 }
