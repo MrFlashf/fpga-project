@@ -10,7 +10,7 @@
 // 5. wyswietlic wynik
 
 int main(int argc, char *argv[]) {
-  int result, operationInt;
+  int result, operationInt = 0;
   char opt;
   char* operation = NULL;
   char* fileName = "";
