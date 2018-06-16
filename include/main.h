@@ -1,2 +1,7 @@
+struct Tuple {
+  int *numbers;
+  int howManyLines;
+};
+
 void print_calc(void);
-int getNumbersFromFile(char*);
+struct Tuple getNumbersFromFile(char *fileName);
