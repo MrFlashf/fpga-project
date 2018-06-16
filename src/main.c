@@ -9,37 +9,38 @@
 // 4. wykonać działanie
 // 5. wyswietlic wynik
 int main(int argc, char *argv[]) {
-  int result;
+  int result, operationInt;
   char opt;
-  char* type;
-  char* fileName;
+  char* operation = NULL;
+  char* fileName = "";
 
 
-  while((opt = getopt(argc, argv, "t:f:")) != -1) {
+  while((opt = getopt(argc, argv, "o:f:")) != -1) {
     switch(opt) {
-      case 't':
-        type = optarg;
-        printf("Type = %s\n", type);
+      case 'o':
+        operation = optarg;
+        operationInt = atoi(operation);
         break;
       case 'f':
         fileName = optarg;
-        printf("Filename: %s\n", fileName);
         break;
       default: 
-        exit(1);
+        exit(EXIT_FAILURE);
     }
   }
 
-  // zamiast hello.txt daj tutaj nazwe pliku z getopt
-  struct Tuple t = getNumbersFromFile("hello.txt");
-
-  // zamiast 1 daj tutaj z getopta cyfrę odpowiadającą za rodzaj operacji, np. 1 dodawanie, 2 mnożenie itd.
-  result = count(t, 1);
-
-  if (result == NULL) {
-    printf("BŁĄD! Nie można dzielić przez zero!");
-  } else {
-    printf("Wynik: %d\n", result);
+  if (fileName == "") {
+    printf("File name not specified, exiting\n");
+    exit(EXIT_FAILURE);
   }
+  if (operationInt == 0) {
+    printf("Operation not specified assuming multiply\n");
+    operationInt = 1;
+  }
+
+  struct Tuple t = getNumbersFromFile(fileName);
+
+  result = count(t, operationInt);
+  printf("Wynik: %d\n", result);
   return(0);
 }

@@ -1,7 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <main.h>
 
 int count(struct Tuple tuple, int operation) {
+  printf("operation in calcu: %d\n", operation);
   int result;
   switch(operation) {
     case 1:
@@ -31,24 +33,27 @@ int add(struct Tuple tuple) {
   int result = 0;
   for (int i = 0; i < tuple.howManyLines; i++)
     result += tuple.numbers[i];
-  return 0;
+  return result;
 }
 
 int divide(struct Tuple tuple) {
   int result = 1;
-  for (int i = 0; i < tuple.howManyLines; i++)
+  for (int i = 0; i < tuple.howManyLines; i++) {
     if (tuple.numbers[i] == 0) {
-      return NULL;
+      printf("BŁĄD - dzielenie przez 0!");
+      exit(EXIT_FAILURE);
     }
     else {
       result /= tuple.numbers[i];      
     }
-  return 0;
+  }
+  return result;
 }
 
 int substract(struct Tuple tuple) {
   int result = 0;
-  for (int i = 0; i < tuple.howManyLines; i++)
+  for (int i = 0; i < tuple.howManyLines; i++) {
     result -= tuple.numbers[i];
-  return 0;
+  }
+  return result;
 }
