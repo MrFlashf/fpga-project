@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <main.h>
+#include <stdlib.h>
 
 int count(struct Tuple tuple, int operation) {
   printf("operation in calcu: %d\n", operation);
