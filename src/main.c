@@ -14,9 +14,10 @@ int main(int argc, char *argv[]) {
   char opt;
   char* operation = NULL;
   char* fileName = "";
+  char* outputFileName = "";
 
 
-  while((opt = getopt(argc, argv, "o:f:")) != -1) {
+  while((opt = getopt(argc, argv, "o:f:w:")) != -1) {
     switch(opt) {
       case 'o':
         operation = optarg;
@@ -24,6 +25,9 @@ int main(int argc, char *argv[]) {
         break;
       case 'f':
         fileName = optarg;
+        break;
+      case 'w':
+        outputFileName = optarg;
         break;
       default: 
         exit(EXIT_FAILURE);
@@ -36,20 +40,21 @@ int main(int argc, char *argv[]) {
   }
   if (operationInt == 0) {
     printf("Operation not specified, assuming multiply\n");
+    
     operationInt = 1;
   }
 
   struct Tuple t = getNumbersFromFile(fileName);
 
   result = count(t, operationInt);
-  printf("Zapisuje wynik w pliku wynik.txt\n");
+  if (outputFileName == "") {
+    printf("Output file name not specified, saving to wynik.txt\n");
+    outputFileName = "wynik.txt";
+  }
+  printf("Saving result to %s\n", outputFileName);
 
   char command[999];
-  sprintf(command, "echo \"Wynik = %d\" >> ../wynik.txt", result);
-
-  printf("%s\n", command);
-
+  sprintf(command, "echo \"Wynik = %d\" > ../output/%s", result, outputFileName);
   system(command);
-
   exit(EXIT_SUCCESS);
 }
