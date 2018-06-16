@@ -28,13 +28,27 @@ int multiply(struct Tuple tuple) {
 }
 
 int add(struct Tuple tuple) {
+  int result = 0;
+  for (int i = 0; i < tuple.howManyLines; i++)
+    result += tuple.numbers[i];
   return 0;
 }
 
 int divide(struct Tuple tuple) {
+  int result = 1;
+  for (int i = 0; i < tuple.howManyLines; i++)
+    if (tuple.numbers[i] == 0) {
+      return NULL;
+    }
+    else {
+      result /= tuple.numbers[i];      
+    }
   return 0;
 }
 
 int substract(struct Tuple tuple) {
+  int result = 0;
+  for (int i = 0; i < tuple.howManyLines; i++)
+    result -= tuple.numbers[i];
   return 0;
 }
