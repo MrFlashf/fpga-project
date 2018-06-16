@@ -8,6 +8,7 @@
 // 3. sparsować plik do arraya
 // 4. wykonać działanie
 // 5. wyswietlic wynik
+
 int main(int argc, char *argv[]) {
   int result, operationInt;
   char opt;
@@ -34,13 +35,21 @@ int main(int argc, char *argv[]) {
     exit(EXIT_FAILURE);
   }
   if (operationInt == 0) {
-    printf("Operation not specified assuming multiply\n");
+    printf("Operation not specified, assuming multiply\n");
     operationInt = 1;
   }
 
   struct Tuple t = getNumbersFromFile(fileName);
 
   result = count(t, operationInt);
-  printf("Wynik: %d\n", result);
-  return(0);
+  printf("Zapisuje wynik w pliku wynik.txt\n");
+
+  char command[999];
+  sprintf(command, "echo \"Wynik = %d\" >> ../wynik.txt", result);
+
+  printf("%s\n", command);
+
+  system(command);
+
+  exit(EXIT_SUCCESS);
 }

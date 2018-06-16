@@ -4,7 +4,6 @@
 #include <stdlib.h>
 
 int count(struct Tuple tuple, int operation) {
-  printf("operation in calcu: %d\n", operation);
   int result;
   switch(operation) {
     case 1:
