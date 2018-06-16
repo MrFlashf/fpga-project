@@ -7,19 +7,21 @@
 // 4. wykonać działanie
 // 5. wyswietlic wynik
 int main(int argc, char *argv[]) {
+  int result;
   print_calc();
   struct Tuple t = getNumbersFromFile("hello.txt");
 
-  int a = t.howManyLines;
+  count(t, 1);
 
-  int wynik = 1;
+  // int a = t.howManyLines;
+  // int wynik = 1;
 
-  for (int i = 0; i < t.howManyLines; i++) {
-    printf("Liczba %d: %d\n", i, t.numbers[i]);
-    wynik = wynik*t.numbers[i];
-  }
+  // for (int i = 0; i < t.howManyLines; i++) {
+  //   printf("Liczba %d: %d\n", i, t.numbers[i]);
+  //   wynik = wynik*t.numbers[i];
+  // }
 
-
-
-  printf("luine number %d\n", wynik);
+  // printf("Wynik: %d\n", wynik);
+  
+  return(0);
 }

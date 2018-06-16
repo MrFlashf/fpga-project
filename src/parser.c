@@ -5,11 +5,9 @@
 struct Tuple getNumbersFromFile(char *fileName) {
   FILE *fp;
   char *line = NULL;
-  char buff[255];
   size_t len = 0;
   int array[999];
   int lineNumber = 0;
-
 
   fp = fopen(fileName, "r");
 
@@ -19,13 +17,7 @@ struct Tuple getNumbersFromFile(char *fileName) {
     lineNumber += 1;
   }
 
-  for (int i=0; i < lineNumber; i++) {
-    printf("Line: %d\n", array[i]);
-  }
-
   fclose(fp);
   struct Tuple ret = { array, lineNumber };
   return ret;
-  
-  // return(0);
 }
