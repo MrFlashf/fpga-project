@@ -10,7 +10,7 @@ LIBS=-lm
 _DEPS = main.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = main.o calcu.o 
+_OBJ = main.o calcu.o parser.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 
