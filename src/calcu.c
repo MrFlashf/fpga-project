@@ -23,7 +23,8 @@ int count(struct Tuple tuple, int operation) {
 
 int multiply(struct Tuple tuple) {
   int result = 1;
-  for (int i = 0; i < tuple.howManyLines; i++)
+  int i = 0;
+  for (i = 0; i < tuple.howManyLines; i++)
     result *= tuple.numbers[i];
   
   return result;
@@ -31,14 +32,16 @@ int multiply(struct Tuple tuple) {
 
 int add(struct Tuple tuple) {
   int result = 0;
-  for (int i = 0; i < tuple.howManyLines; i++)
+  int i = 0;  
+  for (i = 0; i < tuple.howManyLines; i++)
     result += tuple.numbers[i];
   return result;
 }
 
 int divide(struct Tuple tuple) {
   int result = 1;
-  for (int i = 0; i < tuple.howManyLines; i++) {
+  int i = 0;  
+  for (i = 0; i < tuple.howManyLines; i++) {
     if (tuple.numbers[i] == 0) {
       printf("BŁĄD - dzielenie przez 0!");
       exit(EXIT_FAILURE);
@@ -52,7 +55,8 @@ int divide(struct Tuple tuple) {
 
 int substract(struct Tuple tuple) {
   int result = 0;
-  for (int i = 0; i < tuple.howManyLines; i++) {
+  int i = 0;  
+  for (i = 0; i < tuple.howManyLines; i++) {
     result -= tuple.numbers[i];
   }
   return result;
