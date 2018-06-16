@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <main.h>
+#include <stdlib.h>
 
 int count(struct Tuple tuple, int operation) {
   int result;
@@ -38,7 +39,7 @@ int divide(struct Tuple tuple) {
   int result = 1;
   for (int i = 0; i < tuple.howManyLines; i++)
     if (tuple.numbers[i] == 0) {
-      return NULL;
+      exit(EXIT_FAILURE);
     }
     else {
       result /= tuple.numbers[i];      
