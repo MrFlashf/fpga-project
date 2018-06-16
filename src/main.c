@@ -8,20 +8,14 @@
 // 5. wyswietlic wynik
 int main(int argc, char *argv[]) {
   int result;
-  print_calc();
+
+  // zamiast hello.txt daj tutaj nazwe pliku z getopt
   struct Tuple t = getNumbersFromFile("hello.txt");
 
-  count(t, 1);
+  // zamiast 1 daj tutaj z getopta cyfrę odpowiadającą za rodzaj operacji, np. 1 dodawanie, 2 mnożenie itd.
+  result = count(t, 1);
 
-  // int a = t.howManyLines;
-  // int wynik = 1;
 
-  // for (int i = 0; i < t.howManyLines; i++) {
-  //   printf("Liczba %d: %d\n", i, t.numbers[i]);
-  //   wynik = wynik*t.numbers[i];
-  // }
-
-  // printf("Wynik: %d\n", wynik);
-  
+  printf("Wynik: %d\n", result);
   return(0);
 }
